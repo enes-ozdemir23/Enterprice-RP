@@ -108,11 +108,23 @@
     <Compile Include="FrmSiparisListesi.Designer.cs">
       <DependentUpon>FrmSiparisListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSiparisSevk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSiparisSevk.Designer.cs">
+      <DependentUpon>FrmSiparisSevk.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStokGrupKodlari.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmStokGrupKodlari.Designer.cs">
       <DependentUpon>FrmStokGrupKodlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStokHareketleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStokHareketleri.Designer.cs">
+      <DependentUpon>FrmStokHareketleri.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmStokKayitlari.cs">
       <SubType>Form</SubType>
@@ -168,8 +180,14 @@
     <EmbeddedResource Include="FrmSiparisListesi.resx">
       <DependentUpon>FrmSiparisListesi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSiparisSevk.resx">
+      <DependentUpon>FrmSiparisSevk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmStokGrupKodlari.resx">
       <DependentUpon>FrmStokGrupKodlari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStokHareketleri.resx">
+      <DependentUpon>FrmStokHareketleri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStokKayitlari.resx">
       <DependentUpon>FrmStokKayitlari.cs</DependentUpon>

@@ -104,3 +104,5 @@ C:\Users\EnesLenovo\source\repos\Erp\Erp\obj\Debug\Erp.FrmIsEmriSiparisleri.reso
 C:\Users\EnesLenovo\source\repos\Erp\Erp\obj\Debug\Erp.FrmtIsEmriListesi.resources
 C:\Users\EnesLenovo\source\repos\Erp\Erp\obj\Debug\Erp.FrmUretimSonuKayitlari.resources
 C:\Users\EnesLenovo\source\repos\Erp\Erp\obj\Debug\Erp.FrmUretimSonuKayitListesi.resources
+C:\Users\EnesLenovo\source\repos\Erp\Erp\obj\Debug\Erp.FrmStokHareketleri.resources
+C:\Users\EnesLenovo\source\repos\Erp\Erp\obj\Debug\Erp.FrmSiparisSevk.resources

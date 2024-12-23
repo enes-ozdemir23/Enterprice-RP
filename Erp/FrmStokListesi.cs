@@ -81,6 +81,15 @@ namespace Erp
                 FrmIsEmri frm = new FrmIsEmri();
                 frm.Activate();
             }
+            if (stokkodu == "stokhareket")
+            {
+                stokkodu = satir["STOK_KODU"].ToString();
+                FrmStokHareketleri.stokhareketx = "stok";
+                this.Hide();
+                FrmStokHareketleri frm = new FrmStokHareketleri();
+                frm.Activate();
+                
+            }
         }
 
         private void FrmStokListesi_ControlRemoved(object sender, ControlEventArgs e)

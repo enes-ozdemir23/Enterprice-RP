@@ -29,12 +29,29 @@ namespace Erp
             gridControl1.DataSource = dt;
             conn.Close();
         }
+        void arama2()
+        {
+            conn.Open();
+            DataTable dt = new DataTable();
+            SqlCommand sorgu1 = new SqlCommand("SELECT ISEMRI_NUMARASI,STOK_KODU,STOK_ADI,SIPARIS_NO FROM TBL_ISEMRI WHERE ISEMRI_NUMARASI LIKE '%" + txtIsEmriNumarasi.Text + "%' AND STOK_KODU LIKE '%" + txtStokKodu.Text + "%' AND STOK_ADI LIKE '%" + txtStokAdi.Text + "%' AND SIPARIS_NO LIKE '%" + txtSiparisNumarasi.Text + "%' AND DURUM='Y'", conn);
+            SqlDataAdapter da = new SqlDataAdapter(sorgu1);
+            da.Fill(dt);
+            gridControl1.DataSource = dt;
+            conn.Close();
+        }
         private void FrmtIsEmriListesi_Load(object sender, EventArgs e)
         {
             gridView1.OptionsBehavior.Editable = false;
+            if (isemrino == "uretimsonukayit")
+            {
+                arama2();
 
-            arama();
+            }
+            else
+            {
+                arama();
 
+            }    
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
@@ -49,6 +66,15 @@ namespace Erp
                 frm.Activate();
                 // aktif olursa FrmIsemri_Activated metodu çalışır.
             }
+            if (isemrino == "uretimsonukayit")
+            {
+                isemrino = x["ISEMRI_NUMARASI"].ToString();
+                FrmUretimSonuKayitlari.fisx = "isemri";
+                this.Hide();
+                FrmUretimSonuKayitlari frm = new FrmUretimSonuKayitlari();
+                // aktif olursa Frmuretimsonukayit_Activated metodu çalışır.
+
+            }
         }
 
         private void FrmtIsEmriListesi_FormClosed(object sender, FormClosedEventArgs e)
@@ -61,22 +87,58 @@ namespace Erp
 
         private void txtIsEmriNumarasi_TextChanged(object sender, EventArgs e)
         {
-            arama();
+            if (isemrino == "uretimsonukayit")
+            {
+                arama2();
+
+            }
+            else
+            {
+                arama();
+
+            }
         }
 
         private void txtSiparisNumarasi_TextChanged(object sender, EventArgs e)
         {
-            arama();
+            if (isemrino == "uretimsonukayit")
+            {
+                arama2();
+
+            }
+            else
+            {
+                arama();
+
+            }
         }
 
         private void txtStokKodu_TextChanged(object sender, EventArgs e)
         {
-            arama();
+            if (isemrino == "uretimsonukayit")
+            {
+                arama2();
+
+            }
+            else
+            {
+                arama();
+
+            }
         }
 
         private void txtStokAdi_TextChanged(object sender, EventArgs e)
         {
-            arama();
+            if (isemrino == "uretimsonukayit")
+            {
+                arama2();
+
+            }
+            else
+            {
+                arama();
+
+            }
         }
     }
 }

@@ -51,5 +51,17 @@ namespace Erp
             FrmUretimSonuKayitlari frm = new FrmUretimSonuKayitlari();
             frm.Show();
         }
+
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmStokHareketleri frm = new FrmStokHareketleri();
+            frm.Show();
+        }
+
+        private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmSiparisSevk frm = new FrmSiparisSevk();
+            frm.Show();
+        }
     }
 }

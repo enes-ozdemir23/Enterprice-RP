@@ -47,7 +47,7 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtMusteriKodu = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.txtSiparisAdi = new DevExpress.XtraEditors.TextEdit();
+            this.txtStokAdi = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtKalemID = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -61,7 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMusteriAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMiktar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMusteriKodu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSiparisAdi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStokAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKalemID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSiparisNumarasi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStokKodu.Properties)).BeginInit();
@@ -85,12 +85,13 @@
             // 
             // sbtntIsEmriListesi
             // 
-            this.sbtntIsEmriListesi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtnStokListesi.ImageOptions.Image")));
+            this.sbtntIsEmriListesi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtntIsEmriListesi.ImageOptions.Image")));
             this.sbtntIsEmriListesi.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.BottomCenter;
             this.sbtntIsEmriListesi.Location = new System.Drawing.Point(330, 75);
             this.sbtntIsEmriListesi.Name = "sbtntIsEmriListesi";
             this.sbtntIsEmriListesi.Size = new System.Drawing.Size(24, 25);
             this.sbtntIsEmriListesi.TabIndex = 18;
+            this.sbtntIsEmriListesi.Click += new System.EventHandler(this.sbtntIsEmriListesi_Click);
             // 
             // labelControl1
             // 
@@ -104,7 +105,7 @@
             // 
             // sbtnFisListesi
             // 
-            this.sbtnFisListesi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtntIsEmriListesi.ImageOptions.Image")));
+            this.sbtnFisListesi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtnFisListesi.ImageOptions.Image")));
             this.sbtnFisListesi.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.BottomCenter;
             this.sbtnFisListesi.Location = new System.Drawing.Point(330, 33);
             this.sbtnFisListesi.Name = "sbtnFisListesi";
@@ -118,6 +119,7 @@
             this.txtFisNo.Name = "txtFisNo";
             this.txtFisNo.Size = new System.Drawing.Size(108, 20);
             this.txtFisNo.TabIndex = 1;
+            this.txtFisNo.Leave += new System.EventHandler(this.txtFisNo_Leave);
             // 
             // labelControl2
             // 
@@ -137,6 +139,7 @@
             this.txtIsEmriNumarasi.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtIsEmriNumarasi.Size = new System.Drawing.Size(108, 20);
             this.txtIsEmriNumarasi.TabIndex = 3;
+            this.txtIsEmriNumarasi.Leave += new System.EventHandler(this.txtIsEmriNumarasi_Leave);
             // 
             // sbtnSil
             // 
@@ -146,6 +149,7 @@
             this.sbtnSil.Size = new System.Drawing.Size(69, 25);
             this.sbtnSil.TabIndex = 32;
             this.sbtnSil.Text = "Sil";
+            this.sbtnSil.Click += new System.EventHandler(this.sbtnSil_Click);
             // 
             // sbtnKaydet
             // 
@@ -155,6 +159,7 @@
             this.sbtnKaydet.Size = new System.Drawing.Size(69, 25);
             this.sbtnKaydet.TabIndex = 31;
             this.sbtnKaydet.Text = "Kaydet";
+            this.sbtnKaydet.Click += new System.EventHandler(this.sbtnKaydet_Click);
             // 
             // sbtnSiparisTemizle
             // 
@@ -165,6 +170,7 @@
             this.sbtnSiparisTemizle.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.sbtnSiparisTemizle.Size = new System.Drawing.Size(31, 33);
             this.sbtnSiparisTemizle.TabIndex = 16;
+            this.sbtnSiparisTemizle.Click += new System.EventHandler(this.sbtnSiparisTemizle_Click);
             // 
             // groupBox2
             // 
@@ -175,7 +181,7 @@
             this.groupBox2.Controls.Add(this.labelControl8);
             this.groupBox2.Controls.Add(this.txtMusteriKodu);
             this.groupBox2.Controls.Add(this.labelControl5);
-            this.groupBox2.Controls.Add(this.txtSiparisAdi);
+            this.groupBox2.Controls.Add(this.txtStokAdi);
             this.groupBox2.Controls.Add(this.labelControl6);
             this.groupBox2.Controls.Add(this.txtKalemID);
             this.groupBox2.Controls.Add(this.labelControl3);
@@ -254,17 +260,17 @@
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(13, 124);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(68, 19);
+            this.labelControl5.Size = new System.Drawing.Size(56, 19);
             this.labelControl5.TabIndex = 4;
-            this.labelControl5.Text = "Sipariş Adı";
+            this.labelControl5.Text = "Stok Adı";
             // 
-            // txtSiparisAdi
+            // txtStokAdi
             // 
-            this.txtSiparisAdi.Enabled = false;
-            this.txtSiparisAdi.Location = new System.Drawing.Point(146, 124);
-            this.txtSiparisAdi.Name = "txtSiparisAdi";
-            this.txtSiparisAdi.Size = new System.Drawing.Size(108, 20);
-            this.txtSiparisAdi.TabIndex = 5;
+            this.txtStokAdi.Enabled = false;
+            this.txtStokAdi.Location = new System.Drawing.Point(146, 124);
+            this.txtStokAdi.Name = "txtStokAdi";
+            this.txtStokAdi.Size = new System.Drawing.Size(108, 20);
+            this.txtStokAdi.TabIndex = 5;
             // 
             // labelControl6
             // 
@@ -338,6 +344,9 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmUretimSonuKayitlari";
             this.Text = "Üretim Sonu Kayıtları";
+            this.Activated += new System.EventHandler(this.FrmUretimSonuKayitlari_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmUretimSonuKayitlari_FormClosed);
+            this.Load += new System.EventHandler(this.FrmUretimSonuKayitlari_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtFisNo.Properties)).EndInit();
@@ -347,7 +356,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMusteriAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMiktar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMusteriKodu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSiparisAdi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStokAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKalemID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSiparisNumarasi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStokKodu.Properties)).EndInit();
@@ -375,7 +384,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.TextEdit txtMusteriKodu;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.TextEdit txtSiparisAdi;
+        private DevExpress.XtraEditors.TextEdit txtStokAdi;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit txtKalemID;
         private DevExpress.XtraEditors.LabelControl labelControl3;
