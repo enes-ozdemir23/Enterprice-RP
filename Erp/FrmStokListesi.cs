@@ -25,7 +25,8 @@ namespace Erp
             conn.Open();
 
             DataTable dt = new DataTable();
-            SqlCommand sorgu1 = new SqlCommand("SELECT * FROM TBL_STOKKAYITLARI WHERE STOK_KODU LIKE '%"+txtStokKodu.Text+"%' AND STOK_ADI LIKE '%"+txtStokAdi.Text+"%' AND GRUP_KODU LIKE '%"+txtGrupKodu.Text+"%'", conn);
+            SqlCommand sorgu1 = new SqlCommand("SELECT * FROM TBL_STOKKAYITLARI WHERE STOK_KODU LIKE '%"+txtStokKodu.Text+
+                "%' AND STOK_ADI LIKE '%"+txtStokAdi.Text+"%' AND GRUP_KODU LIKE '%"+txtGrupKodu.Text+"%'", conn);
             SqlDataAdapter da = new SqlDataAdapter(sorgu1);
             da.Fill(dt);
             gridControl1.DataSource = dt; // db'den alınan sonuçlar adabtörde saklandı ardından gridkontrole aktarıldı.

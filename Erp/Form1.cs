@@ -63,5 +63,46 @@ namespace Erp
             FrmSiparisSevk frm = new FrmSiparisSevk();
             frm.Show();
         }
+
+        private void barButtonItem8_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmGenelRapor frm = new FrmGenelRapor();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmUretilecekIsEmirleri frm = new FrmUretilecekIsEmirleri();
+            frm.MdiParent = this;
+            frm.Show();
+
+        }
+
+        private void barButtonItem10_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmGiris frm = new FrmGiris();
+            frm.Show();
+        }
+
+        private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmUretilenIsEmirleri frm = new FrmUretilenIsEmirleri();
+            frm.MdiParent = this;
+            frm.Show();
+
+        }
+
+        private void barButtonItem12_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmKullanici frm = new FrmKullanici();
+            frm.Show();
+        }
+
+        private void barButtonItem13_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmKullaniciEkle frm = new FrmKullaniciEkle();
+            frm.Show();
+        }
     }
 }

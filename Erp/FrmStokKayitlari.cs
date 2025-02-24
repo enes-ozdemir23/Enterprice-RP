@@ -126,7 +126,7 @@ namespace Erp
         {
             if(txtStokKodu.Text=="")
             {
-                txtStokKodu.Focus();
+                txtStokKodu.Focus(); // hücreden ayrılmaz
             }
             else
             {

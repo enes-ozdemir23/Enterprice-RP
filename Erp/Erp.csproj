@@ -33,17 +33,45 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Charts.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v20.1.UI, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Diagram.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v20.1.UI, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v20.1.Extensions, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v20.1.Wizard, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraDiagram.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v20.1.Extensions, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +81,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="deneme.cs">
@@ -72,6 +101,30 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAyarlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAyarlar.Designer.cs">
+      <DependentUpon>FrmAyarlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGenelRapor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGenelRapor.Designer.cs">
+      <DependentUpon>FrmGenelRapor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGiris.Designer.cs">
+      <DependentUpon>FrmGiris.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmIsEmri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +136,18 @@
     </Compile>
     <Compile Include="FrmIsEmriSiparisleri.Designer.cs">
       <DependentUpon>FrmIsEmriSiparisleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKullanici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKullanici.Designer.cs">
+      <DependentUpon>FrmKullanici.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKullaniciEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKullaniciEkle.Designer.cs">
+      <DependentUpon>FrmKullaniciEkle.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMusteriKayitlari.cs">
       <SubType>Form</SubType>
@@ -144,6 +209,18 @@
     <Compile Include="FrmtIsEmriListesi.Designer.cs">
       <DependentUpon>FrmtIsEmriListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUretilecekIsEmirleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUretilecekIsEmirleri.Designer.cs">
+      <DependentUpon>FrmUretilecekIsEmirleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUretilenIsEmirleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUretilenIsEmirleri.Designer.cs">
+      <DependentUpon>FrmUretilenIsEmirleri.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUretimSonuKayitlari.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,11 +239,29 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAyarlar.resx">
+      <DependentUpon>FrmAyarlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGenelRapor.resx">
+      <DependentUpon>FrmGenelRapor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGiris.resx">
+      <DependentUpon>FrmGiris.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmIsEmri.resx">
       <DependentUpon>FrmIsEmri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIsEmriSiparisleri.resx">
       <DependentUpon>FrmIsEmriSiparisleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKullanici.resx">
+      <DependentUpon>FrmKullanici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKullaniciEkle.resx">
+      <DependentUpon>FrmKullaniciEkle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMusteriKayitlari.resx">
       <DependentUpon>FrmMusteriKayitlari.cs</DependentUpon>
@@ -197,6 +292,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmtIsEmriListesi.resx">
       <DependentUpon>FrmtIsEmriListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUretilecekIsEmirleri.resx">
+      <DependentUpon>FrmUretilecekIsEmirleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUretilenIsEmirleri.resx">
+      <DependentUpon>FrmUretilenIsEmirleri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUretimSonuKayitlari.resx">
       <DependentUpon>FrmUretimSonuKayitlari.cs</DependentUpon>
