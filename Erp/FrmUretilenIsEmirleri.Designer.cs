@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery2 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUretilenIsEmirleri));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colISEMRI_NUMARASI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSTOK_KODU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSTOK_ADI = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -44,6 +43,7 @@
             this.colSIPARIS_NO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMIKTAR = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSIPKALEM_ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +61,16 @@
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
+            // sqlDataSource2
+            // 
+            this.sqlDataSource2.ConnectionName = "localhost_ERP_EGITIM_Connection 1";
+            this.sqlDataSource2.Name = "sqlDataSource2";
+            customSqlQuery2.Name = "Query";
+            customSqlQuery2.Sql = resources.GetString("customSqlQuery2.Sql");
+            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            customSqlQuery2});
+            this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -77,22 +87,9 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
-            // sqlDataSource1
-            // 
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            // 
-            // sqlDataSource2
-            // 
-            this.sqlDataSource2.ConnectionName = "localhost_ERP_EGITIM_Connection 1";
-            this.sqlDataSource2.Name = "sqlDataSource2";
-            customSqlQuery1.Name = "Query";
-            customSqlQuery1.Sql = resources.GetString("customSqlQuery1.Sql");
-            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery1});
-            this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
-            // 
             // colISEMRI_NUMARASI
             // 
+            this.colISEMRI_NUMARASI.Caption = "İş Emri Numarası";
             this.colISEMRI_NUMARASI.FieldName = "ISEMRI_NUMARASI";
             this.colISEMRI_NUMARASI.Name = "colISEMRI_NUMARASI";
             this.colISEMRI_NUMARASI.Visible = true;
@@ -100,6 +97,7 @@
             // 
             // colSTOK_KODU
             // 
+            this.colSTOK_KODU.Caption = "Stok Kodu";
             this.colSTOK_KODU.FieldName = "STOK_KODU";
             this.colSTOK_KODU.Name = "colSTOK_KODU";
             this.colSTOK_KODU.Visible = true;
@@ -107,6 +105,7 @@
             // 
             // colSTOK_ADI
             // 
+            this.colSTOK_ADI.Caption = "Stok Adı";
             this.colSTOK_ADI.FieldName = "STOK_ADI";
             this.colSTOK_ADI.Name = "colSTOK_ADI";
             this.colSTOK_ADI.Visible = true;
@@ -114,6 +113,7 @@
             // 
             // colISEMRI_ACIKLAMASI
             // 
+            this.colISEMRI_ACIKLAMASI.CustomizationCaption = "İş Emri Açıklaması";
             this.colISEMRI_ACIKLAMASI.FieldName = "ISEMRI_ACIKLAMASI";
             this.colISEMRI_ACIKLAMASI.Name = "colISEMRI_ACIKLAMASI";
             this.colISEMRI_ACIKLAMASI.Visible = true;
@@ -121,6 +121,7 @@
             // 
             // colİŞEMRİTARİHİ
             // 
+            this.colİŞEMRİTARİHİ.CustomizationCaption = "İşlem Tarihi";
             this.colİŞEMRİTARİHİ.FieldName = "İŞ EMRİ TARİHİ";
             this.colİŞEMRİTARİHİ.Name = "colİŞEMRİTARİHİ";
             this.colİŞEMRİTARİHİ.Visible = true;
@@ -128,6 +129,7 @@
             // 
             // colTESLİMTARİHİ
             // 
+            this.colTESLİMTARİHİ.CustomizationCaption = "Teslim Tarihi";
             this.colTESLİMTARİHİ.FieldName = "TESLİM TARİHİ";
             this.colTESLİMTARİHİ.Name = "colTESLİMTARİHİ";
             this.colTESLİMTARİHİ.Visible = true;
@@ -135,6 +137,7 @@
             // 
             // colSIPARIS_NO
             // 
+            this.colSIPARIS_NO.Caption = "Sipariş No";
             this.colSIPARIS_NO.FieldName = "SIPARIS_NO";
             this.colSIPARIS_NO.Name = "colSIPARIS_NO";
             this.colSIPARIS_NO.Visible = true;
@@ -142,6 +145,7 @@
             // 
             // colMIKTAR
             // 
+            this.colMIKTAR.Caption = "Miktar";
             this.colMIKTAR.FieldName = "MIKTAR";
             this.colMIKTAR.Name = "colMIKTAR";
             this.colMIKTAR.Visible = true;
@@ -149,10 +153,15 @@
             // 
             // colSIPKALEM_ID
             // 
+            this.colSIPKALEM_ID.Caption = "Sipariş ID";
             this.colSIPKALEM_ID.FieldName = "SIPKALEM_ID";
             this.colSIPKALEM_ID.Name = "colSIPKALEM_ID";
             this.colSIPKALEM_ID.Visible = true;
             this.colSIPKALEM_ID.VisibleIndex = 8;
+            // 
+            // sqlDataSource1
+            // 
+            this.sqlDataSource1.Name = "sqlDataSource1";
             // 
             // FrmUretilenIsEmirleri
             // 
@@ -162,6 +171,7 @@
             this.Controls.Add(this.gridControl1);
             this.Name = "FrmUretilenIsEmirleri";
             this.Text = "Üretilen İş Emirleri";
+            this.Load += new System.EventHandler(this.FrmUretilenIsEmirleri_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);

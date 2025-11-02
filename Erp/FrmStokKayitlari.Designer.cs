@@ -236,11 +236,15 @@
             this.Controls.Add(this.sbtnKaydet);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "FrmStokKayitlari";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stok Kartı Kayıtları";
             this.Activated += new System.EventHandler(this.FrmStokKayitlari_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmStokKayitlari_FormClosed);
             this.Load += new System.EventHandler(this.FrmStokKayitlari_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmStokKayitlari_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.txtStokKodu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStokAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGrupKodu.Properties)).EndInit();

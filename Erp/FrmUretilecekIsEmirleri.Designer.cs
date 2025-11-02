@@ -99,6 +99,7 @@
             // 
             // colISEMRI_NUMARASI
             // 
+            this.colISEMRI_NUMARASI.Caption = "İş Emri Numarası";
             this.colISEMRI_NUMARASI.FieldName = "ISEMRI_NUMARASI";
             this.colISEMRI_NUMARASI.Name = "colISEMRI_NUMARASI";
             this.colISEMRI_NUMARASI.Visible = true;
@@ -106,6 +107,7 @@
             // 
             // colSTOK_KODU
             // 
+            this.colSTOK_KODU.Caption = "Stok Kodu";
             this.colSTOK_KODU.FieldName = "STOK_KODU";
             this.colSTOK_KODU.Name = "colSTOK_KODU";
             this.colSTOK_KODU.Visible = true;
@@ -113,6 +115,7 @@
             // 
             // colSTOK_ADI
             // 
+            this.colSTOK_ADI.Caption = "Stok Adı";
             this.colSTOK_ADI.FieldName = "STOK_ADI";
             this.colSTOK_ADI.Name = "colSTOK_ADI";
             this.colSTOK_ADI.Visible = true;
@@ -120,6 +123,7 @@
             // 
             // colISEMRI_ACIKLAMASI
             // 
+            this.colISEMRI_ACIKLAMASI.Caption = "İş Emri Açıklaması";
             this.colISEMRI_ACIKLAMASI.FieldName = "ISEMRI_ACIKLAMASI";
             this.colISEMRI_ACIKLAMASI.Name = "colISEMRI_ACIKLAMASI";
             this.colISEMRI_ACIKLAMASI.Visible = true;
@@ -127,6 +131,7 @@
             // 
             // colİŞEMRİTARİHİ
             // 
+            this.colİŞEMRİTARİHİ.Caption = "İş Emri Tarihi";
             this.colİŞEMRİTARİHİ.FieldName = "İŞ EMRİ TARİHİ";
             this.colİŞEMRİTARİHİ.Name = "colİŞEMRİTARİHİ";
             this.colİŞEMRİTARİHİ.Visible = true;
@@ -134,6 +139,7 @@
             // 
             // colTESLİMTARİHİ
             // 
+            this.colTESLİMTARİHİ.Caption = "Teslim Tarihi";
             this.colTESLİMTARİHİ.FieldName = "TESLİM TARİHİ";
             this.colTESLİMTARİHİ.Name = "colTESLİMTARİHİ";
             this.colTESLİMTARİHİ.Visible = true;
@@ -141,6 +147,7 @@
             // 
             // colSIPARIS_NO
             // 
+            this.colSIPARIS_NO.Caption = "Sipariş No";
             this.colSIPARIS_NO.FieldName = "SIPARIS_NO";
             this.colSIPARIS_NO.Name = "colSIPARIS_NO";
             this.colSIPARIS_NO.Visible = true;
@@ -148,6 +155,7 @@
             // 
             // colMIKTAR
             // 
+            this.colMIKTAR.Caption = "Miktar";
             this.colMIKTAR.FieldName = "MIKTAR";
             this.colMIKTAR.Name = "colMIKTAR";
             this.colMIKTAR.Visible = true;
@@ -155,6 +163,7 @@
             // 
             // colSIPKALEM_ID
             // 
+            this.colSIPKALEM_ID.Caption = "Sipariş ID";
             this.colSIPKALEM_ID.FieldName = "SIPKALEM_ID";
             this.colSIPKALEM_ID.Name = "colSIPKALEM_ID";
             this.colSIPKALEM_ID.Visible = true;

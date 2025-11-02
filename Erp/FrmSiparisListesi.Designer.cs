@@ -132,6 +132,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmSiparisListesi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sipariş Listesi";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmSiparisListesi_FormClosed);
             this.Load += new System.EventHandler(this.FrmSiparisListesi_Load);

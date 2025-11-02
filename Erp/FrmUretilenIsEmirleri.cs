@@ -19,5 +19,10 @@ namespace Erp
             // Fill the SqlDataSource asynchronously
             sqlDataSource2.FillAsync();
         }
+
+        private void FrmUretilenIsEmirleri_Load(object sender, EventArgs e)
+        {
+            gridView1.OptionsBehavior.Editable = false;
+        }
     }
 }

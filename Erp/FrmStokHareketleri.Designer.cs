@@ -204,6 +204,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmStokHareketleri";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stok Hareketleri";
             this.Activated += new System.EventHandler(this.FrmStokHareketleri_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmStokHareketleri_FormClosed);

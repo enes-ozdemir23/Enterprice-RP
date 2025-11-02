@@ -120,7 +120,7 @@
   <metadata name="sqlDataSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>153, 17</value>
   </metadata>
-  <data name="customSqlQuery1.Sql" xml:space="preserve">
+  <data name="customSqlQuery2.Sql" xml:space="preserve">
     <value>SELECT ISEMRI_NUMARASI,STOK_KODU,STOK_ADI,ISEMRI_ACIKLAMASI,SUBSTRING(ISEMRI_TARIHI,0,10) AS 'İŞ EMRİ TARİHİ', SUBSTRING(TESLIM_TARIHI,0,10) AS 'TESLİM TARİHİ',SIPARIS_NO,MIKTAR,SIPKALEM_ID FROM TBL_ISEMRI WHERE DURUM='E'
 </value>
   </data>

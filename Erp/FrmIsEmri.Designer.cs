@@ -138,6 +138,7 @@
             // 
             this.groupBox2.Controls.Add(this.rbtnTamamlanmis);
             this.groupBox2.Controls.Add(this.rbtnYeni);
+            this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(406, 206);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(215, 65);
@@ -437,6 +438,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmIsEmri";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "İş Emri Girişi";
             this.Activated += new System.EventHandler(this.FrmIsEmri_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmIsEmri_FormClosed);

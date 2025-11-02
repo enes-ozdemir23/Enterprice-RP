@@ -98,6 +98,8 @@ namespace Erp
 
         private void FrmStokKayitlari_Load(object sender, EventArgs e)
         {
+            // Mouse ile boyut ayarlaması özelliği devre dışı.
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; 
             txtFiyat.Text = "0,00";
             txtKDVOrani.Text = "0,00";
         }
@@ -234,6 +236,24 @@ namespace Erp
                 MessageBox.Show("Böyle bir stok kodu bulunmamaktadır.");
 
             }
+        }
+
+        private void FrmStokKayitlari_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Escape)
+            {
+                this.Hide();
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                sbtnKaydet.PerformClick();
+            }
+            if (e.KeyCode == Keys.F5)
+            {
+                FrmStokListesi frm = new FrmStokListesi();
+                frm.Show();
+            }
+
         }
     }
 }

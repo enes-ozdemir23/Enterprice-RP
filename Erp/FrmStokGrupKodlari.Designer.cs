@@ -156,6 +156,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmStokGrupKodlari";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stok Grup Kodları";
             this.Load += new System.EventHandler(this.FrmStokGrupKodlari_Load);
             this.groupBox1.ResumeLayout(false);

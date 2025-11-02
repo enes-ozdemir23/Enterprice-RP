@@ -134,6 +134,20 @@ namespace Erp
             sbtntIsEmriListesi.Enabled = true;
 
         }
+
+        string y1 = "";
+        void uretimsonukaydinumarasihesaplama()
+        {
+            conn.Open();
+            SqlCommand sorgu1 = new SqlCommand("SELECT TOP 1 CONCAT('U',REPLICATE('0',10-(LEN(SUBSTRING(URETIMSONUKAYDI_NUMARASI,2,9)+1)+1)),SUBSTRING(URETIMSONUKAYDI_NUMARASI,2,9)+1) AS 'URETIM SONU KAYDI NUMARASI' FROM TBL_URETIMSONUKAYITLARI ORDER BY URETIMSONUKAYDI_NUMARASI DESC", conn);
+            SqlDataReader dr = sorgu1.ExecuteReader();
+            while (dr.Read())
+            {
+                y1 = dr[0].ToString();
+            }
+            conn.Close();
+
+        }
         // DİKKAT EDİLİRSE G MIKTAR 0 YAPILDI, AÇIKLAMA ÜRETİM YAPILDI
         void stokhareketkaydigirisi()
         {
@@ -222,6 +236,8 @@ namespace Erp
                     conn.Close();
                     temizle();
                     txtFisNo.Text = "";
+                    uretimsonukaydinumarasihesaplama();
+                    txtFisNo.Text = y1;
                 }
 
             }
@@ -247,6 +263,8 @@ namespace Erp
                     conn.Close();
                     temizle();
                     txtFisNo.Text = "";
+                    uretimsonukaydinumarasihesaplama();
+                    txtFisNo.Text = y1;
 
                 }
                 else
@@ -291,6 +309,8 @@ namespace Erp
 
         private void FrmUretimSonuKayitlari_Load(object sender, EventArgs e)
         {
+            uretimsonukaydinumarasihesaplama();
+            txtFisNo.Text = y1;
 
         }
 

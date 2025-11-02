@@ -559,6 +559,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelControl8);
             this.Name = "FrmSiparisler";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sipariş Kaydı";
             this.Activated += new System.EventHandler(this.FrmSiparisler_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmSiparisler_FormClosed);

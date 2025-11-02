@@ -193,6 +193,21 @@ namespace Erp
             conn.Close();
 
         }
+
+        string y1 = "";
+        void siparisumarasihesaplama()
+        {
+            conn.Open();
+            SqlCommand sorgu1 = new SqlCommand("SELECT TOP 1 CONCAT('S',REPLICATE('0',10-(LEN(SUBSTRING(SIPARIS_NO,2,9)+1)+1)),SUBSTRING(SIPARIS_NO,2,9)+1) AS 'URETIM SONU KAYDI NUMARASI' FROM TBL_SIPARISLER ORDER BY SIPARIS_NO DESC", conn);
+            SqlDataReader dr = sorgu1.ExecuteReader();
+            while (dr.Read())
+            {
+                y1 = dr[0].ToString();
+            }
+            conn.Close();
+
+        }
+
         private void sbtnStokListesi_Click(object sender, EventArgs e)
         {
             FrmSiparisListesi.siparisno = "sipariskayit"; //
@@ -208,6 +223,8 @@ namespace Erp
 
         private void FrmSiparisler_Load(object sender, EventArgs e)
         {
+            siparisumarasihesaplama();
+            txtSiparisNumarasi.Text = y1;
             gridView1.OptionsBehavior.Editable = false;
             txtStokAdi.Enabled = false;
             txtKDV.Enabled = false;
@@ -281,47 +298,70 @@ namespace Erp
         }
 
         private void sbtnKaydet_Click(object sender, EventArgs e)
-        {       
-            
-            if (sipkalem == "")  
+        {
+            if (txtStokKodu.Text == "")
             {
-                conn.Open();
-                SqlCommand sorgu1 = new SqlCommand("INSERT INTO TBL_SIPARISKALEMLERI (SIPARIS_NO,STOK_KODU,STOK_ADI,MIKTAR,URUN_ACIKLAMASI,FIYAT,KDV,URETIMDURUMU) VALUES ('"+txtSiparisNumarasi.Text+"','"+txtStokKodu.Text+"','"+txtStokAdi.Text+"','"+txtMiktar.Text.Replace(',','.')+"','"+txtUrunAciklamasi.Text+"','"+txtFiyat.Text.Replace(',','.')+"','"+txtKDV.Text.Replace(',', '.') + "','K')", conn);
-                sorgu1.ExecuteNonQuery();
-                conn.Close();
-                temizle1();
-                siparisbilgisicekme2();
-                geneltoplamhesaplama();
+
             }
+
             else
             {
-                conn.Open();
-                SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_SIPARISKALEMLERI SET MIKTAR='"+txtMiktar.Text.Replace(',','.')+"',URUN_ACIKLAMASI='"+txtUrunAciklamasi.Text+"',FIYAT='"+txtFiyat.Text.Replace(',','.') + "',KDV='"+txtKDV.Text.Replace(',','.') + "' WHERE SIPKALEM_ID='" + sipkalem + "'", conn);
-                sorgu1.ExecuteNonQuery();
-                conn.Close();
-                temizle1();
-                siparisbilgisicekme2();
-                geneltoplamhesaplama();
+                if (sipkalem == "")
+                {
+                    conn.Open();
+                    SqlCommand sorgu1 = new SqlCommand("INSERT INTO TBL_SIPARISKALEMLERI (SIPARIS_NO,STOK_KODU,STOK_ADI,MIKTAR,URUN_ACIKLAMASI,FIYAT,KDV,URETIMDURUMU) VALUES ('" + txtSiparisNumarasi.Text + "','" + txtStokKodu.Text + "','" + txtStokAdi.Text + "','" + txtMiktar.Text.Replace(',', '.') + "','" + txtUrunAciklamasi.Text + "','" + txtFiyat.Text.Replace(',', '.') + "','" + txtKDV.Text.Replace(',', '.') + "','K')", conn);
+                    sorgu1.ExecuteNonQuery();
+                    conn.Close();
+                    temizle1();
+                    siparisbilgisicekme2();
+                    geneltoplamhesaplama();
+                    sipkalem = "";
+                }
+                else
+                {
+                    sipkalemisemrikontrol();
+                    if (x5 == "K")
+                    {
+                        conn.Open();
+                        SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_SIPARISKALEMLERI SET MIKTAR='" + txtMiktar.Text.Replace(',', '.') + "',URUN_ACIKLAMASI='" + txtUrunAciklamasi.Text + "',FIYAT='" + txtFiyat.Text.Replace(',', '.') + "',KDV='" + txtKDV.Text.Replace(',', '.') + "' WHERE SIPKALEM_ID='" + sipkalem + "'", conn);
+                        sorgu1.ExecuteNonQuery();
+                        temizle1();
+                        siparisbilgisicekme2();
+                        geneltoplamhesaplama();
+                        sipkalem = "";
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("bu sipariş kalmeine ait iş emri bulunmaktadır.");
+                        temizle1();
+                        sipkalem = "";
+                    }
+
+                }
+                sipariskontrol();
+                if (Convert.ToInt16(x1) == 1)
+                {
+                    conn.Open();
+                    SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_SIPARISLER SET SIPARIS_TARIHI='" + txtSiparisTarihi.Text + "',TESLIM_TARIHI='" + txtTeslimTarihi.Text + "',TOPLAM_TUTAR='" + txtToplamTutar.Text.Replace(',', '.') + "' WHERE SIPARIS_NO='" + txtSiparisNumarasi.Text + "'", conn);
+                    sorgu1.ExecuteNonQuery();
+                    conn.Close();
+                }
+                else
+                {
+                    conn.Open();
+                    SqlCommand sorgu1 = new SqlCommand("INSERT INTO TBL_SIPARISLER(SIPARIS_NO,MUSTERI_KODU,SIPARIS_TARIHI,TESLIM_TARIHI,TOPLAM_TUTAR) VALUES('" + txtSiparisNumarasi.Text + "','" + txtMusteriKodu.Text + "','" + txtSiparisTarihi.Text + "','" + txtTeslimTarihi.Text + "','" + txtToplamTutar.Text.Replace(',', '.') + "')", conn);
+                    sorgu1.ExecuteNonQuery();
+                    conn.Close();
+                        conn.Close();
+                }
+                // Kaydet butonuna basıldığında 2 şey yapılabilir. 1) Yeni veri ekleme  2) Güncelleme 
+                // sipkalem  doubleclick yapıldığında değişiyordu. yani veriler alttan üst kısma taşınmış demektir
+                // kaydet butonu siparisler ve sipariskalemleri tablosunu etkiler.
+                // ÜSTTEKİ İF-ELSE KALEMLERİ ALTTAKİ İF ELSE SİPARİŞLERİ ETKİLER.
+
             }
-            sipariskontrol();
-            if (Convert.ToInt16(x1) == 1)
-            {
-                conn.Open();
-                SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_SIPARISLER SET SIPARIS_TARIHI='" + txtSiparisTarihi.Text + "',TESLIM_TARIHI='" + txtTeslimTarihi.Text + "',TOPLAM_TUTAR='" + txtToplamTutar.Text.Replace(',', '.') + "' WHERE SIPARIS_NO='" + txtSiparisNumarasi.Text + "'", conn);
-                sorgu1.ExecuteNonQuery();
-                conn.Close();
-            }
-            else
-            {
-                conn.Open();
-                SqlCommand sorgu1 = new SqlCommand("INSERT INTO TBL_SIPARISLER(SIPARIS_NO,MUSTERI_KODU,SIPARIS_TARIHI,TESLIM_TARIHI,TOPLAM_TUTAR) VALUES('" + txtSiparisNumarasi.Text + "','" + txtMusteriKodu.Text + "','" + txtSiparisTarihi.Text + "','" + txtTeslimTarihi.Text + "','" + txtToplamTutar.Text.Replace(',', '.') + "')", conn);
-                sorgu1.ExecuteNonQuery();
-                conn.Close();
-            }
-            // Kaydet butonuna basıldığında 2 şey yapılabilir. 1) Yeni veri ekleme  2) Güncelleme 
-            // sipkalem  doubleclick yapıldığında değişiyordu. yani veriler alttan üst kısma taşınmış demektir
-            // kaydet butonu siparisler ve sipariskalemleri tablosunu etkiler.
-            // ÜSTTEKİ İF-ELSE KALEMLERİ ALTTAKİ İF ELSE SİPARİŞLERİ ETKİLER.
+
 
         }
 
@@ -350,38 +390,50 @@ namespace Erp
 
         private void sbtnSil_Click(object sender, EventArgs e) // kalemlerin silme fonksiyonu
         {
-            sipkalemisemrikontrol(); // üretim durumu A (AÇIK) B (BİTMİŞ) S (SEVK EDİLMİŞ)  K (KAPALI) Kontrolü yapılır.
-            if (x5 == "K")
+            if (txtStokKodu.Text == "")
             {
-                conn.Open();
-                SqlCommand sorgu1 = new SqlCommand("DELETE TBL_SIPARISKALEMLERI WHERE SIPKALEM_ID='" + sipkalem + "'", conn);
-                sorgu1.ExecuteNonQuery();
-                conn.Close();
-                temizle1();
-                siparisbilgisicekme2();
-                sipkalem = ""; // çünkü artık böyle bir id değerine sahip bir kalem yok silindi yani. Genel toplamı tekrar hesaplamalıyız.
-                txtStokKodu.Enabled = true;
-                kalemsayma();
-                if (Convert.ToInt16(x4)==0)
-                {
-                    txtToplamTutar.Text = "0,00";
-
-                }
-                else
-                {
-                    geneltoplamhesaplama();
-                }
-                conn.Open();
-                SqlCommand sorgu2 = new SqlCommand("UPDATE TBL_SIPARISLER SET SIPARIS_TARIHI='" + txtSiparisTarihi.Text + "',TESLIM_TARIHI='" + txtTeslimTarihi.Text + "',TOPLAM_TUTAR='" + txtToplamTutar.Text.Replace(',', '.') + "' WHERE SIPARIS_NO='" + txtSiparisNumarasi.Text + "'", conn);
-                sorgu2.ExecuteNonQuery();
-                conn.Close();
-
 
             }
             else
             {
-                MessageBox.Show("bu sipariş kalmeine ait iş emri bulunmaktadır.");
-            }  
+                sipkalemisemrikontrol(); // üretim durumu A (AÇIK) B (BİTMİŞ) S (SEVK EDİLMİŞ)  K (KAPALI) Kontrolü yapılır.
+                if (x5 == "K")
+                {
+                    conn.Open();
+                    SqlCommand sorgu1 = new SqlCommand("DELETE TBL_SIPARISKALEMLERI WHERE SIPKALEM_ID='" + sipkalem + "'", conn);
+                    sorgu1.ExecuteNonQuery();
+                    conn.Close();
+                    temizle1();
+                    siparisbilgisicekme2();
+                    sipkalem = ""; // çünkü artık böyle bir id değerine sahip bir kalem yok silindi yani. Genel toplamı tekrar hesaplamalıyız.
+                    txtStokKodu.Enabled = true;
+                    kalemsayma();
+                    if (Convert.ToInt16(x4) == 0)
+                    {
+                        txtToplamTutar.Text = "0,00";
+
+                    }
+                    else
+                    {
+                        geneltoplamhesaplama();
+                    }
+                    conn.Open();
+                    SqlCommand sorgu2 = new SqlCommand("UPDATE TBL_SIPARISLER SET SIPARIS_TARIHI='" + txtSiparisTarihi.Text + "',TESLIM_TARIHI='" + txtTeslimTarihi.Text + "',TOPLAM_TUTAR='" + txtToplamTutar.Text.Replace(',', '.') + "' WHERE SIPARIS_NO='" + txtSiparisNumarasi.Text + "'", conn);
+                    sorgu2.ExecuteNonQuery();
+                    conn.Close();
+                    sipkalem = "";
+
+                }
+                else
+                {
+                    MessageBox.Show("bu sipariş kalmeine ait iş emri bulunmaktadır.");
+                    sipkalem = "";
+                    temizle1();
+
+                }
+
+            }
+             
         }
 
         private void sbtnSiparisSil_Click(object sender, EventArgs e)
@@ -401,6 +453,8 @@ namespace Erp
                 temizle2();
                 txtSiparisNumarasi.Text = "";
                 siparisbilgisicekme2();
+                siparisumarasihesaplama();
+                txtSiparisNumarasi.Text = y1;
             }
             else
             {
@@ -414,22 +468,26 @@ namespace Erp
             if (Convert.ToInt16(x1) == 1)
             {
                 conn.Open();
-                SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_SIPARISLER SET SIPARIS_TARIHI='" + txtSiparisTarihi.Text + "',TESLIM_TARIHI='" + txtTeslimTarihi.Text + "',TOPLAM_TUTAR='" + txtToplamTutar.Text.Replace(',', '.') + "' WHERE SIPARIS_NO='" + txtSiparisNumarasi.Text + "'", conn);
+                SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_SIPARISLER SET SIPARIS_TARIHI='" + txtSiparisTarihi.Text + "',TESLIM_TARIHI='" + txtTeslimTarihi.Text + "',TOPLAM_TUTAR=" + txtToplamTutar.Text.Replace(',', '.') + "' WHERE SIPARIS_NO='" + txtSiparisNumarasi.Text + "'", conn);
                 sorgu1.ExecuteNonQuery();
                 conn.Close();
+               
             }
             else
             {
                 conn.Open();
-                SqlCommand sorgu1 = new SqlCommand("INSERT INTO TBL_SIPARISLER(SIPARIS_NO,MUSTERI_KODU,SIPARIS_TARIHI,TESLIM_TARIHI,TOPLAM_TUTAR) VALUES('" + txtSiparisNumarasi.Text + "','" + txtMusteriKodu.Text + "','" + txtSiparisTarihi.Text + "','" + txtTeslimTarihi.Text + "','" + txtToplamTutar.Text.Replace(',', '.') + "')", conn);
+                SqlCommand sorgu1 = new SqlCommand("INSERT INTO TBL_SIPARISLER(SIPARIS_NO,MUSTERI_KODU,SIPARIS_TARIHI,TESLIM_TARIHI,TOPLAM_TUTAR) VALUES('" + txtSiparisNumarasi.Text + "','" + txtMusteriKodu.Text + "','" + txtSiparisTarihi.Text + "','" + txtTeslimTarihi.Text + "','" + txtToplamTutar.Text.Replace(',', '.') + ")", conn);
                 sorgu1.ExecuteNonQuery();
                 conn.Close();
+                
             }
 
             siparisbilgisicekme1();
             temizle2();
             txtSiparisNumarasi.Text = "";
             siparisbilgisicekme2();
+            siparisumarasihesaplama();
+            txtSiparisNumarasi.Text = y1;
 
         }
 
